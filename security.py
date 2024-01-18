@@ -351,6 +351,7 @@ def format_and_save_as_json(content, filename):
 
         # Parsing the JSON string to a Python dictionary
         json_data = json.loads(json_str)
+        print(json_data)
 
         # Saving the JSON data to a file
         with open(filename, 'w') as file:

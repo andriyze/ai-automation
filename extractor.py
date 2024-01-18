@@ -38,7 +38,7 @@ Take a step back and think step by step about how to achieve the best result pos
 3. You use numberd lists, not bullets.
 4. Do not repeat ideas, quotes, facts, or resources.
 5. Do not start items with the same opening words.
-6. Provide the result in Ukrainian if the text content is in Ukrainian.
+6. Mandatory: If the provided text contains Ukrainian provide your response in Ukrainian.
 
 TEXT: 
 """
@@ -65,6 +65,7 @@ def query_gpt4_turbo(prompt, model="gpt-4-1106-preview"):
 def format_and_save_as_md(content, filename):
     if 'choices' in content and len(content['choices']) > 0:
         formatted_text = content['choices'][0]['message']['content']
+        print(formatted_text)
         with open(filename, 'w') as file:
             file.write(formatted_text)
 
