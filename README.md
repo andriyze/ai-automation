@@ -67,7 +67,7 @@ or
 3. output will be saved as markdown file
 
 
-## Chainning commands: Extract knowledge from YouTube video (subtitles) and provide a readout (mp3 file)
+## Chaining commands: Extract knowledge from YouTube video (subtitles) and provide a readout (mp3 file)
 
 
 1. copy url of the YouTube video (e.g. `https://www.youtube.com/watch?v=vF-MQmVxnCs`)
