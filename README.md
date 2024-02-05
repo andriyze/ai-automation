@@ -5,15 +5,17 @@ Influenced by Daniel Miessler's talk about [Fabric](https://github.com/danielmie
 
 ## Setup
 
-First export your OpenAI key and install Python requirements
+First export your [OpenAI key](https://platform.openai.com/api-keys) and install Python requirements
+
+`cd ai-automation`
 
 `export OPENAI_API_KEY=sk-...`
 
-`pip install -r requirements.txt`
+`pip install -r requirements.txt` or `pip3 install -r requirements.txt`
 
 ## Usage 
 
-### Security article analysis tool (security.py)
+### Security incident analysis tool (security.py)
 1. copy security article and save it to a text file (text.txt)
 
 2. run `python3 security.py -f text.txt`
@@ -48,16 +50,40 @@ or
 3. output will be saved as markdown file
 
 
-### Extract knowledge from YouTube video (subtitles)
+### Code explainer tool (explain_code.py)
+
+1. copy security article and save it to a text file (text.txt)
+
+2. run `python3 explain_code.py -f text.txt`
+
+3. output will be saved as markdown file
+
+or
+
+1. copy code you want to analyze (crtl+c the piece of code)
+
+2. on macOS* `pbpaste | python3 explain_code.py`
+
+3. output will be saved as markdown file
+
+
+## Chainning commands: Extract knowledge from YouTube video (subtitles) and provide a readout (mp3 file)
 
 
 1. copy url of the YouTube video (e.g. `https://www.youtube.com/watch?v=vF-MQmVxnCs`)
 
-2. on macOS* `pbpaste | python3 youtube.py | python3 extractor.py`
+2. on macOS* `pbpaste | python3 youtube.py | python3 extractor.py | python3 tts.py`
 
-3. output will be saved as markdown file
+3. output will be saved as mp3 file
 
-### Linux*
+
+This will:
+- Get subtitles of the Youtube video.
+- Extract knowledge using ChatGPT
+- Get audio of the result in mp3 format
+
+
+## Linux*
 
 On Linux you can install xclip. 
 
@@ -72,7 +98,7 @@ You can also set alias in your .bashrc profile
  `alias pbpaste='xclip -selection clipboard -o'`
 
 
-### Windows*
+## Windows*
 
 On Windows use `Get-Clipboard` for pasting into your PowerShell terminal
 
