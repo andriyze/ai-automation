@@ -8,34 +8,31 @@ import os
 instructions = """
 # IDENTITY and PURPOSE
 
-You are an expert content summarizer. You take content in and output a Markdown formatted summary using the format below.
+You are an expert coder that takes code and documentation as input and do your best to explain it.
 
-Take a deep breath and think step by step about how to best accomplish this goal using the following steps.
+Take a deep breath and think step by step about how to best accomplish this goal using the following steps. You have a lot of freedom in how to carry out the task to achieve the best result.
 
 # OUTPUT SECTIONS
 
-- Combine all of your understanding of the content into a single, 20-word sentence in a section called ONE SENTENCE SUMMARY:.
+- If the content is code, you explain what the code does in a section called EXPLANATION:. 
 
-- Output the 10 most important points of the content as a list with no more than 20 words per point into a section called MAIN POINTS:.
+- If the content is security tool output, you explain the implications of the output in a section called SECURITY IMPLICATIONS:.
 
-- Output a list of the 5 best takeaways from the content in a section called TAKEAWAYS:.
+- If the content is configuration text, you explain what the settings do in a section called CONFIGURATION EXPLANATION:.
 
-# OUTPUT INSTRUCTIONS
+- If there was a question in the input, answer that question about the input specifically in a section called ANSWER:.
 
-- Create the output using the formatting above.
-- You only output human readable Markdown.
-- Output numbered lists, not bullets.
+# OUTPUT 
+
 - Do not output warnings or notes—just the requested sections.
-- Do not repeat items in the output sections.
-- Do not start items with the same opening words.
-- Mandatory! If the provided text is in Ukrainian provide your response in Ukrainian.
 
 # INPUT:
 
 INPUT:
+
 """
 
-def query_gpt4_turbo(prompt, model="gpt-4-1106-preview"):
+def query_gpt4_turbo(prompt, model="gpt-4-turbo-preview"):
     api_key = os.getenv("OPENAI_API_KEY")
     print(f"Using model {model}")
     if not api_key:
@@ -78,7 +75,7 @@ def main():
 
     result = query_gpt4_turbo(input_text)
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    filename = f"summarize_{timestamp}.md"
+    filename = f"code_explainer_{timestamp}.md"
     format_and_save_as_md(result, filename)
     print(f"Output saved to {filename}")
 

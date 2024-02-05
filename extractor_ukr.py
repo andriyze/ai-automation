@@ -39,6 +39,10 @@ Take a step back and think step by step about how to achieve the best result pos
 4. Do not repeat ideas, quotes, facts, or resources.
 5. Do not start items with the same opening words.
 
+## OUTPUT LANGUAGE
+
+1. Always translate your output in Ukrainian.
+
 TEXT: 
 """
 
